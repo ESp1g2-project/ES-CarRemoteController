@@ -1,0 +1,4 @@
+/home/diogo/Desktop/ES-CarRemoteController/LegoCarRemoteController/src/main/java/com/ua/LegoCarRemoteController/Main.java
+/home/diogo/Desktop/ES-CarRemoteController/LegoCarRemoteController/src/main/java/com/ua/LegoCarRemoteController/resource/KafkaProducerCarControls.java
+/home/diogo/Desktop/ES-CarRemoteController/LegoCarRemoteController/src/main/java/com/ua/LegoCarRemoteController/model/Command.java
+/home/diogo/Desktop/ES-CarRemoteController/LegoCarRemoteController/src/main/java/com/ua/LegoCarRemoteController/config/KafkaConfiguration.java
