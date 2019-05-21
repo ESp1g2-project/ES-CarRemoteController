@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven-3.6.1' 
+        jdk 'JDK18'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+                echo 'Cloning project'
+                git url: 'git://github.com/ESp1g2-project/ES-CarRemoteController.git', branch: 'master'
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                echo 'Building'
+                sh 'mvn -f LegoCarRemoteController/pom.xml -Dmaven.test.failure.ignore=false package' 
+            }
+        }
+        
+        stage ('Testing') {
+            steps{
+                echo 'Testing' 
+                //junit 'LegoCarRemoteController/target/surefire-reports/*.xml' 
+            }   
+        }
+        
+        stage ('Deploy') {
+            steps{
+                echo 'Deploying'
+                sh 'java -jar LegoCarRemoteController/target/LegoCarRemoteController-0.0.1-SNAPSHOT.jar'
+
+            }   
+        }
+    }
+}
+
