@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<!-- css link needs to be put after the bootstrap link to overwrite its values -->
 		<link rel="stylesheet" type="text/css" href="main.css">
+		<script type="text/javascript" src="ultrasound.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	</head>
 	
 	<body>
@@ -75,6 +77,10 @@
 		    <button id="button1" class="btn" style="background-color: #3399ff; height: 50px; width: 250px; color: white; margin: 10px 10px 10px 10px;" onclick="ultraSoundButton(this)">Ultrasound sensor ON</button>
 	        <button id="button2" class="btn" style="background-color: #3399ff; height: 50px; width: 250px; color: white; margin: 10px 10px 10px 10px;" onclick="cameraButton(this)">Camera ON</button>
 	        <button id="button3" class="btn" style="background-color: #ff5050; height: 50px; width: 250px; color: white; margin: 10px 10px 10px 10px;" onclick="voiceCommandButton(this)">Voice commands OFF</button>	
+		</div>
+		
+		<div align="center">
+			<h3 id="distanceText" style="margin-top:10px;"> Distance: 0 cm </h3>	
 		</div>
         
         

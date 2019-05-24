@@ -21,7 +21,12 @@ public class KafkaConsumerUltrasoundSensor
     public void consume(@Payload String data) throws IOException 
     {
     	System.out.printf("%s\n", data);
-    	if (Integer.parseInt(data) < 10)
+    	
+    	int dataInt = Integer.parseInt(data);
+    	
+    	UltrasoundDataController.ultrasoundData.add(dataInt);
+    	
+    	if (dataInt < 10)
     		kafkaTemplate.send(TOPIC, new Command("stop"));
     }
 }

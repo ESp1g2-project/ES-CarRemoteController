@@ -2,19 +2,19 @@ package com.ua.LegoCarRemoteController.model;
 
 public class DistanceData 
 {
-	private double value;
+	private int value;
 	
-	public DistanceData(double value)
+	public DistanceData(int value)
 	{
 		this.value = value;
 	}
 	
-	public double getValue()
+	public int getValue()
 	{
 		return this.value;
 	}
 	
-	public void setValue(double value)
+	public void setValue(int value)
 	{
 		this.value = value;
 	}
