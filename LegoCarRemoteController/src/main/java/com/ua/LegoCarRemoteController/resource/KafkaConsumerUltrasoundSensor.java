@@ -22,11 +22,20 @@ public class KafkaConsumerUltrasoundSensor
     {
     	System.out.printf("%s\n", data);
     	
-    	int dataInt = Integer.parseInt(data);
+    	int dataInt;
     	
-    	UltrasoundDataController.ultrasoundData.add(dataInt);
-    	
-    	if (dataInt < 10)
-    		kafkaTemplate.send(TOPIC, new Command("stop"));
+		try {  
+			dataInt = Integer.parseInt(data);
+			
+			UltrasoundDataController.ultrasoundData.add(dataInt);
+	    	
+	    	if (dataInt < 10)
+	    		kafkaTemplate.send(TOPIC, new Command("stop"));
+		    
+		  } catch(NumberFormatException e){  
+		    System.out.println("Distance is not a number");
+		  }  
     }
+    
+    
 }
