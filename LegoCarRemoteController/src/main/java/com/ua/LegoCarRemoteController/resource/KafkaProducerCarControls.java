@@ -25,8 +25,8 @@ public class KafkaProducerCarControls {
 	private KafkaTemplate<String, Command> kafkaTemplate;
 	private static final String TOPIC = "p1g2drive";
 	
-	 private static final String PORT = "8080";
-     private static final String SERVER = "localhost";
+	 private static final String PORT = "8097";
+     private static final String SERVER = "192.168.160.73";
 	 private static final String USER = "postgres";
 	 private static final String PASSWORD = "mysecretpassword";
 	 private static final String DB_NAME = "car";
@@ -61,8 +61,6 @@ public class KafkaProducerCarControls {
             
     }
 	
-
-    
     private static void sendToDB (String cmd)
     {
         Connection con = getConnection();
