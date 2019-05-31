@@ -21,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.*;
 
 import com.ua.LegoCarRemoteController.model.Command;
 import com.ua.LegoCarRemoteController.model.DistanceData;
+import com.ua.LegoCarRemoteController.model.FrameData;
 
 
 @RestController
@@ -29,40 +30,25 @@ public class UltrasoundDataController
 {
 	public static List<Integer> ultrasoundData = new ArrayList<Integer>();
 	
-    /*@GetMapping(path = "/ultrasounddata", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public int feed() 
-    {
-        return ultrasoundData.get(ultrasoundData.size() - 1);
-    }*/
-    /*
-    @Autowired
-	private KafkaTemplate<String, Command> kafkaTemplate;
-	private static final String TOPIC = "p1g2drive";
+	public static List<String> cameraFrames = new ArrayList<String>();
 	
-    @KafkaListener(topics = "p1g2ultrasonic", groupId = "my-group")
-    public void consume(@Payload String data) throws IOException 
-    {
-    	
-    	// stop car from moving if it's going in any of the forward directions, and there's an obstacule in front of it 
-    	System.out.printf("---- %s\n", data);
-    	
-    	ultrasoundData.add(Integer.parseInt(data));
-    	
-    	if (ultrasoundData.size() == 0)
-    		System.out.println("eedede");
-    	
-    	if (ultrasoundData.get(ultrasoundData.size() - 1) < 10)
-    		kafkaTemplate.send(TOPIC, new Command("stop"));
-    }*/
-    
-    
-    @CrossOrigin
+	@CrossOrigin
     @RequestMapping("/getString")
     public DistanceData getString()
     {
-    	if(UltrasoundDataController.ultrasoundData.size() == 0)
-    		return new DistanceData(-1);
-    	
+        if(UltrasoundDataController.ultrasoundData.size() == 0)
+            return new DistanceData(-1);
+            
         return new DistanceData(UltrasoundDataController.ultrasoundData.get(UltrasoundDataController.ultrasoundData.size()-1));
+    }
+    
+    @CrossOrigin
+    @RequestMapping("/getFrames")
+    public FrameData getFrames()
+    {
+    	if(UltrasoundDataController.cameraFrames.size() == 0)
+    		return new FrameData("");
+    	
+        return new FrameData(UltrasoundDataController.cameraFrames.get(UltrasoundDataController.cameraFrames.size()-1));
     }
 }

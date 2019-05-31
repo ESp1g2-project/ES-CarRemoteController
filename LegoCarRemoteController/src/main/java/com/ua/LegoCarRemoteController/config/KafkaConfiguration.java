@@ -22,7 +22,7 @@ public class KafkaConfiguration
 	{
 		Map<String, Object> config = new HashMap<>();
 		config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,  "192.168.160.210:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,  "192.168.160.80:39092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		
@@ -34,4 +34,5 @@ public class KafkaConfiguration
 	{
 		return new KafkaTemplate<String, Command>(producerFactory());
 	}
+	
 }

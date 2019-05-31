@@ -8,6 +8,7 @@
 		<!-- css link needs to be put after the bootstrap link to overwrite its values -->
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script type="text/javascript" src="ultrasound.js"></script>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	</head>
 	
@@ -53,7 +54,9 @@
 		  </div>
 		</nav>
 
+        <canvas id="canvas" width="128" height="80" class="center"></canvas>
         
+        <script type="text/javascript" src="camera.js"></script>
 	
         <div align="center" style="margin: 40px 20px 40px 20px;">
             <div>
@@ -82,6 +85,8 @@
 		<div align="center">
 			<h3 id="distanceText" style="margin-top:10px;"> Distance: 0 cm </h3>	
 		</div>
+        
+        
         
         
 	</body>
