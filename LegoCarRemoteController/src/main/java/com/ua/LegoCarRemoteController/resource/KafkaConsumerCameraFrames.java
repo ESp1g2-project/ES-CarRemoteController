@@ -21,9 +21,9 @@ public class KafkaConsumerCameraFrames
     public void consume(@Payload String data) throws IOException 
     {
     	
-    	System.out.println("\n------------------------\n");
+    	//System.out.println("\n------------------------\n");
 		
-    	System.out.println(data);
+    	//System.out.println(data);
 		UltrasoundDataController.cameraFrames.add(data);
     }
     
